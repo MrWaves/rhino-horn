@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.chinaredstar.jedi.mapper.UsersMapper">
+    <resultMap id="BaseResultMap" type="com.chinaredstar.jedi.entity.UserEntity">
+        <id column="user_id" property="userId" jdbcType="BIGINT"></id>
+        <result column="user_name" property="userName" jdbcType="VARCHAR"></result>
+        <result column="gender" property="gender" javaType="com.chinaredstar.jedi.enums.Gender"></result>
+        <result column="phone_num" property="phoneNum" jdbcType="VARCHAR"></result>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="wechat_num" property="wechatNum" jdbcType="VARCHAR"/>
+        <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" javaType="Date"/>
+        <result column="created_by" property="createdBy" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        user_id, user_name, gender, phone_num, email, wechat_num, created_at, created_by
+    </sql>
+
+    <select id="getById" parameterType="java.lang.Long" resultMap="BaseResultMap" >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM users
+        WHERE user_id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.chinaredstar.jedi.entity.UserEntity" useGeneratedKeys="true" keyColumn="user_id" keyProperty="userId">
+        INSERT INTO
+        users
+        (user_name, gender, phone_num, email, wechat_num, created_at, created_by)
+        VALUES
+        (#{userName}, #{gender}, #{phoneNum},#{email},#{wechatNum},#{createdAt},#{createdBy})
+    </insert>
+</mapper>
