@@ -17,17 +17,17 @@ public class UsersMapperTest {
     @Autowired
     private UsersMapper usersMapper;
 
-    @Test
-    public void insert() throws Exception {
-        UserEntity user=new UserEntity();
-        user.setUserName("李四");
-        user.setGender(Gender.MAN);
-        user.setPhoneNum("130xxxxxxxx");
-        user.setCreatedAt(new Date());
-        user.setCreatedBy("xman");
-        usersMapper.insert(user);
-        System.out.println(user.getUserId());
-    }
+//    @Test
+//    public void insert() throws Exception {
+//        UserEntity user=new UserEntity();
+//        user.setUserName("李四");
+//        user.setGender(Gender.MAN);
+//        user.setPhoneNum("130xxxxxxxx");
+//        user.setCreatedAt(new Date());
+//        user.setCreatedBy("xman");
+//        usersMapper.insert(user);
+//        System.out.println(user.getUserId());
+//    }
 
     @Test
     public void getById() throws Exception {
