@@ -9,8 +9,9 @@ spring:
     username: root
     password: 123456
   rabbitmq:
-    host: localhost
+    host: mq201.dev.rs.com
     port: 5672
-    username: admin
-    password: 123456
+    username: dev
+    password: dev_user
+    virtual-host: /
 
